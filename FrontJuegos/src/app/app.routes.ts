@@ -5,8 +5,8 @@ import { Administracion } from './administracion/administracion';
 
 export const routes: Routes = [
 
-  { path: '', component: MostrarJuegos },
+  { path: '', component: Administracion },
 
-  { path: 'admin', component: Administracion },
+  { path: 'mostrar', component: MostrarJuegos },
 
 ];
