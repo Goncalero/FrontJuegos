@@ -1,5 +1,51 @@
-
 <body>
     <app-root></app-root>
+  </div>
+
+  <footer class="bg-black text-white py-3 mt-auto border-top border-secondary">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+
+      <div class="mb-2 mb-md-0 text-center text-md-start">
+        <span class="fw-bold">Juegos</span> &copy; 2026. Todos los derechos reservados.
+      </div>
+
+      <ul class="nav mb-2 mb-md-0 justify-content-center">
+        <li class="nav-item"><a routerLink="/" class="nav-link px-2 text-white hover-link">Inicio</a></li>
+        <li class="nav-item"><a routerLink="/privacidad" class="nav-link px-2 text-white hover-link">Privacidad</a></li>
+        <li class="nav-item"><a routerLink="/contacto" class="nav-link px-2 text-white hover-link">Contacto</a></li>
+      </ul>
+
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="text-white me-3 fs-5 hover-icon"><i class="bi bi-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank" class="text-white me-3 fs-5 hover-icon"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://instagram.com" target="_blank" class="text-white me-3 fs-5 hover-icon"><i class="bi bi-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="text-white fs-5 hover-icon"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('theme-toggle-btn');
+      const themeIcon = document.getElementById('theme-icon');
+      const htmlElement = document.documentElement;
+
+      toggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+
+        if (currentTheme === 'light') {
+          htmlElement.setAttribute('data-bs-theme', 'dark');
+          themeIcon.classList.remove('bi-moon-fill');
+          themeIcon.classList.add('bi-sun-fill');
+        } else {
+          htmlElement.setAttribute('data-bs-theme', 'light');
+          themeIcon.classList.remove('bi-sun-fill');
+          themeIcon.classList.add('bi-moon-fill');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
