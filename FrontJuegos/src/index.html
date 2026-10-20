@@ -1,13 +1,85 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
-  <title>FrontJuegos victor</title>
+  <title>FrontJuegos</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body>
-  <app-root></app-root>
+<body class="d-flex flex-column min-vh-100">
+  
+  <nav class="navbar navbar-expand-lg shadow-sm py-2" style="background-color: #1b4d3e !important;">
+    <div class="container-fluid d-flex align-items-center justify-content-between position-relative">
+      
+      <a class="navbar-brand d-flex align-items-center m-0" routerLink="/" style="text-decoration: none;">
+        <img src="/logo/logo.jpg" alt="Company Logo" height="60" class="d-inline-block align-text-top rounded me-2"/>
+      </a>
+
+      <div class="position-absolute start-50 translate-middle-x text-center">
+        <h1 class="h4 mb-0 fw-bold tracking-wide" style="color: #ffffff !important;">
+          Bienvenido a nuestra página de juegos
+        </h1>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <button id="theme-toggle-btn" type="button" class="btn fs-5 border-0 bg-transparent p-0" style="color: #ffffff !important;" title="Cambiar tema">
+          <i id="theme-icon" class="bi bi-moon-fill"></i>
+        </button>
+      </div>
+
+    </div>
+  </nav>
+
+  <div class="flex-grow-1">
+    <app-root></app-root>
+  </div>
+
+  <footer class="bg-black text-white py-3 mt-auto border-top border-secondary">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      
+      <div class="mb-2 mb-md-0 text-center text-md-start">
+        <span class="fw-bold">Juegos</span> &copy; 2026. Todos los derechos reservados.
+      </div>
+
+      <ul class="nav mb-2 mb-md-0 justify-content-center">
+        <li class="nav-item"><a routerLink="/" class="nav-link px-2 text-white hover-link">Inicio</a></li>
+        <li class="nav-item"><a routerLink="/privacidad" class="nav-link px-2 text-white hover-link">Privacidad</a></li>
+        <li class="nav-item"><a routerLink="/contacto" class="nav-link px-2 text-white hover-link">Contacto</a></li>
+      </ul>
+
+      <div class="social-icons">
+        <a href="https://facebook.com" target="_blank" class="text-white me-3 fs-5 hover-icon"><i class="bi bi-facebook"></i></a>
+        <a href="https://twitter.com" target="_blank" class="text-white me-3 fs-5 hover-icon"><i class="bi bi-twitter-x"></i></a>
+        <a href="https://instagram.com" target="_blank" class="text-white me-3 fs-5 hover-icon"><i class="bi bi-instagram"></i></a>
+        <a href="https://linkedin.com" target="_blank" class="text-white fs-5 hover-icon"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleBtn = document.getElementById('theme-toggle-btn');
+      const themeIcon = document.getElementById('theme-icon');
+      const htmlElement = document.documentElement;
+
+      toggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-bs-theme');
+        
+        if (currentTheme === 'light') {
+          htmlElement.setAttribute('data-bs-theme', 'dark');
+          themeIcon.classList.remove('bi-moon-fill');
+          themeIcon.classList.add('bi-sun-fill');
+        } else {
+          htmlElement.setAttribute('data-bs-theme', 'light');
+          themeIcon.classList.remove('bi-sun-fill');
+          themeIcon.classList.add('bi-moon-fill');
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
